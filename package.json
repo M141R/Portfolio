@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build:css && eleventy",
+    "dev": "eleventy --serve",
+    "watch": "eleventy --watch",
+    "start:css": "tailwindcss -o src/css/output.css --watch",
+    "build:css": "NODE_ENV=production tailwindcss -o src/css/output.css -m"
   },
   "repository": {
     "type": "git",
@@ -18,6 +22,12 @@
   },
   "homepage": "https://github.com/Mihir-27/Portfolio#readme",
   "dependencies": {
-    "@11ty/eleventy": "^1.0.0"
+    "@11ty/eleventy": "^1.0.0",
+    "autoprefixer": "^10.4.2",
+    "flowbite": "^1.3.3",
+    "postcss": "^8.4.7"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.0.22"
   }
 }

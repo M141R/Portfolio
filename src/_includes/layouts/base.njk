@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ '/css/output.css' | url }}" />
+    <link href="https://api.fontshare.com/css?f[]=panchang@600&f[]=bespoke-stencil@700&display=swap" rel="stylesheet">
+    <title>Portfolio</title>
+  </head>
+  <body>
+    {% include 'navbar.njk' %}
+    {{ content | safe }}
+    <script>
+      const checkbox = document.querySelector("#toggle");
+      const html = document.querySelector("html");
+
+      const toggleDarkMode = function () {
+        checkbox.checked
+          ? html.classList.add("dark")
+          : html.classList.remove("dark");
+      };
+
+      toggleDarkMode();
+
+      checkbox.addEventListener("click", toggleDarkMode);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+---
+layout: layouts/base.njk
+---
+
+<section class="home font-hero text-neutral-900 dark:text-white dark:bg-neutral-900 dark:border-white">
+  <div
+    class="container mx-auto px-5 "
+  >
+    <div class="hero">
+      <h1 class="text-7xl py-44 font-black">
+        Hello I'm Mihir.<br />Frontend Developer & UI/UX Designer
+      </h1>
+    </div>
+    <div class="skills pb-28">
+      <h1 class="text-5xl text-center font-extrabold">My Skills</h1>
+      <div class="flex justify-center gap-20 flex-wrap py-10">
+        <img src="./assets/HTML.svg" alt="Html logo" />
+        <img src="./assets/Css.svg" alt="Css logo" />
+        <img src="./assets/Javascript.svg" alt="JS" />
+        <img class="dark:invert" src="./assets/11ty.svg" alt="11ty logo" />
+        <img src="./assets/ASTRO.svg" alt="Astro logo" />
+      </div>
+    </div>
+    <div id="projects" class="projects pb-28">
+      <h1 class="text-5xl text-center font-extrabold">My Projects</h1>
+      <div
+        class="flex gap-24 pt-10 flex-wrap md:flex-nowrap lg:flex-nowrap xl:flex-nowrap 2xl:flex-nowrap"
+      >
+        <div
+          class="flex flex-col border-2 border-neutral-900 dark:border-neutral-50"
+        >
+          <img
+            class="w-full object-cover"
+            src="./assets/img/demo1.jpg"
+            alt=""
+          />
+          <h1 class="border-b-2 border-neutral-900 dark:border-neutral-50 p-2">
+            Title
+          </h1>
+          <a href="/" class="p-2 hover:bg-neutral-900 hover:text-white">Visit</a>
+        </div>
+        <div
+          class="flex flex-col border-2 border-neutral-900 dark:border-neutral-50"
+        >
+          <img class="w-full" src="./assets/img/demo1.jpg" alt="" />
+          <h1 class="border-b-2 border-neutral-900 dark:border-neutral-50 p-2">
+            Title
+          </h1>
+          <a href="/" class="p-2 hover:bg-neutral-900 hover:text-white">Visit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
