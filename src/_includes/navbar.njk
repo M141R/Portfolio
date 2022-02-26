@@ -1,42 +1,62 @@
-<header class="text-gray-600 body-font border-y-2 border-black dark:text-white dark:bg-neutral-900 dark:border-white">
-  <div
-    class="container mx-auto flex flex-wrap px-5 flex-col md:flex-row items-center"
-  >
-    <a
-      class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
-      href="/"
-    >
-      <span class="ml-3 text-3xl font-logo border-x-2 px-2 border-black dark:text-white dark:border-white"
-        >MK</span
+<header
+  class="text-gray-600 body-font border-y-2 border-black dark:text-white dark:bg-neutral-900 dark:border-white"
+>
+<div class="container mx-auto">
+  <div class="flex flex-wrap px-5 flex-row items-center dark:border-white">
+    <a class="flex title-font font-medium items-center text-gray-900" href="/">
+      <div
+        class="text-3xl font-logo border-x-2 px-2 border-black dark:text-white dark:border-white"
       >
+        MK
+      </div>
     </a>
     <nav
-      class="md:ml-auto flex flex-wrap items-center text-base justify-center font-hero"
+      class="ml-auto flex flex-wrap items-center text-base justify-center font-hero"
     >
-      <a href="about" class="hover:text-gray-900 border-x-2 border-black p-2 dark:border-white"
+      <a
+        href="about"
+        class="hidden md:block hover:text-gray-900 border-x-2 border-black p-2 dark:border-white dark:hover:text-gray-300"
         >About</a
       >
-      <a
-        href="#projects"
-        class="hover:text-gray-900 border-black border-r-2 p-2 dark:border-white"
+      <a href="#projects" class="hidden md:block hover:text-gray-900 p-2"
         >Projects</a
       >
-      <img
-        class="p-2 border-black invert dark:invert-0"
-        src="../assets/sun.svg"
-        alt="Sun"
-      />
-      <input type="checkbox" name="toggle" id="toggle" class="hidden" />
-      <label for="toggle">
-        <div class="w-9 h-5 flex items-center bg-gray-500 rounded-full p-1">
-          <div class="toggle-switch w-4 h-4 bg-gray-100 rounded-full shadow-md transform duration-600 ease-in-out"></div>
-        </div>
-      </label>
-      <img
-        class="p-2 border-r-2 border-black dark:invert"
-        src="../assets/Moon.svg"
-        alt="Moon"
-      />
+      <div class="switch border-x-2 border-black flex items-center">
+        <img
+          class="p-2 invert dark:invert-0"
+          src="../assets/sun.svg"
+          alt="Sun"
+        />
+        <input type="checkbox" name="toggle" id="toggle" class="hidden" />
+        <label for="toggle">
+          <div class="w-9 h-5 flex items-center bg-gray-500 rounded-full p-1">
+            <div
+              class="toggle-switch w-4 h-4 bg-gray-100 rounded-full shadow-md transform duration-600 ease-in-out"
+            ></div>
+          </div>
+        </label>
+        <img class="p-2 dark:invert" src="../assets/Moon.svg" alt="Moon" />
+      </div>
+      <button class="mobile-menu-btn px-4 md:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-7 w-7"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
     </nav>
   </div>
+  <div class="mobile-menu border-t-2 hidden p-5 font-hero text-2xl border-black dark:border-white">
+    <a class="pb-2 block hover:text-gray-900 dark:hover:text-gray-300" href="#projects">Projects</a>
+    <a class="pb-2 block hover:text-gray-900 dark:hover:text-gray-300" href="/">Contact</a>
+    <a class="pb-2 block hover:text-gray-900 dark:hover:text-gray-300" href="/">About</a>
+  </div>
+</div>
 </header>

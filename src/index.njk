@@ -7,22 +7,23 @@ layout: layouts/base.njk
     class="container mx-auto px-5 "
   >
     <div class="hero">
-      <h1 class="text-7xl py-44 font-black">
+      <h1 class="text-5xl py-20 font-black md:py-36 md:text-6xl lg:text-7xl lg:py-48 xl:text-7xl xl:py-48 2xl:text-7xl 2xl:py-48">
         Hello I'm Mihir.<br />Frontend Developer & UI/UX Designer
       </h1>
     </div>
     <div class="skills pb-28">
-      <h1 class="text-5xl text-center font-extrabold">My Skills</h1>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-5xl text-center font-extrabold">My Skills</h1>
       <div class="flex justify-center gap-20 flex-wrap py-10">
         <img src="./assets/HTML.svg" alt="Html logo" />
         <img src="./assets/Css.svg" alt="Css logo" />
         <img src="./assets/Javascript.svg" alt="JS" />
         <img class="dark:invert" src="./assets/11ty.svg" alt="11ty logo" />
-        <img src="./assets/ASTRO.svg" alt="Astro logo" />
+        <img class="dark:hidden" src="./assets/ASTRO.svg" alt="Astro logo" />
+        <img class="hidden dark:block" src="./assets/astro-light.svg" alt="Astro Logo">
       </div>
     </div>
     <div id="projects" class="projects pb-28">
-      <h1 class="text-5xl text-center font-extrabold">My Projects</h1>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-5xl text-center font-extrabold">My Projects</h1>
       <div
         class="flex gap-24 pt-10 flex-wrap md:flex-nowrap lg:flex-nowrap xl:flex-nowrap 2xl:flex-nowrap"
       >

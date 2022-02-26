@@ -5,12 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ '/css/output.css' | url }}" />
-    <link href="https://api.fontshare.com/css?f[]=panchang@600&f[]=bespoke-stencil@700&display=swap" rel="stylesheet">
+    <link
+      href="https://api.fontshare.com/css?f[]=panchang@600&f[]=bespoke-stencil@700&display=swap"
+      rel="stylesheet"
+    />
     <title>Portfolio</title>
   </head>
   <body>
     {% include 'navbar.njk' %}
     {{ content | safe }}
+    {% include 'footer.njk' %}
     <script>
       const checkbox = document.querySelector("#toggle");
       const html = document.querySelector("html");
@@ -24,6 +28,13 @@
       toggleDarkMode();
 
       checkbox.addEventListener("click", toggleDarkMode);
+
+      const btn = document.querySelector("button.mobile-menu-btn");
+      const menu = document.querySelector(".mobile-menu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
     </script>
   </body>
 </html>
