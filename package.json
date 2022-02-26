@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:css && eleventy",
+    "build": "eleventy",
     "dev": "eleventy --serve",
     "watch": "eleventy --watch",
     "start:css": "tailwindcss -o src/css/output.css --watch",
