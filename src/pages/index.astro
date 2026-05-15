@@ -1,11 +1,218 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import devstashImg from "../assets/project/devstash.png";
+import bitvaultImg from "../assets/project/bitvault.png";
+import stockwiseImg from "../assets/project/stockwise.png";
+import heroTrail from "../scripts/hero-trail.js?url";
+import projectCursor from "../scripts/project-cursor.js?url";
+import GsapSkill from "../scripts/gsap-skill.js?url";
+import AboutText from "../scripts/about-text.js?url";
+import navbarScramble from "../scripts/navbar-scramble.js?url";
+import smoothScroll from "../scripts/smooth-scroll.js?url";
+import entrance from "../scripts/entrance.js?url";
+import magnetic from "../scripts/magnetic.js?url";
 ---
 
 <Layout>
-	<Welcome />
+  <section class="hero">
+    <div class="middletext">
+      <h1>Hey, It's <span class="hand">Mihir</span></h1>
+    </div>
+    <p class="herosub">
+      Looking <span class="hand">empty</span>? Move the <span class="hand"
+        >cursor</span
+      >
+    </p>
+  </section>
+  <section class="projectlist" id="projects">
+    <h2>Featured <span class="hand">Projects</span></h2>
+    <a href="https://devstash.itsmihir.me" target="_blank">
+      <div class="project" data-color="#f0f2f7">
+        <Image
+          src={devstashImg}
+          alt="DevStash Project Preview"
+          class="swipeimage"
+        />
+        <div class="projectinfo">
+          <p class="project-num">01</p>
+          <div class="project-title-group">
+            <h3>DevStash</h3>
+            <p class="project-desc">
+              DevStash is a curated directory of the best developer tools,
+              resources, and utilities. The stash every developer needs.
+            </p>
+          </div>
+          <p class="project-cat">DEVELOPER TOOLS</p>
+        </div>
+      </div>
+    </a>
+    <a href="https://bitvault.itsmihir.me" target="_blank">
+      <div class="project" data-color="#f7f0f0">
+        <Image
+          src={bitvaultImg}
+          alt="BitVault Project Preview"
+          class="swipeimage"
+        />
+        <div class="projectinfo">
+          <p class="project-num">02</p>
+          <div class="project-title-group">
+            <h3>BitVault</h3>
+            <p class="project-desc">
+              Download free B.Tech notes, syllabus, papers, and study resources.
+              Filter by subject, type, and semester for fast access.
+            </p>
+          </div>
+          <p class="project-cat">Notes Sharing</p>
+        </div>
+      </div>
+    </a>
+    <a href="https://stockwise.azurewebsites.net" target="_blank">
+      <div class="project" data-color="#f0f7f0">
+        <Image
+          src={stockwiseImg}
+          alt="StockWise Project Preview"
+          class="swipeimage"
+        />
+        <div class="projectinfo">
+          <p class="project-num">03</p>
+          <div class="project-title-group">
+            <h3>StockWise</h3>
+            <p class="project-desc">
+              An educational stock research tool in plain English
+            </p>
+          </div>
+          <p class="project-cat">FINANCE</p>
+        </div>
+      </div>
+    </a>
+  </section>
+  <section class="skills" id="skills">
+    <h2>My <span class="hand">Skills</span></h2>
+    <div class="skill-row">
+      <div class="skill-header">
+        <p class="skill-num">01</p>
+        <p class="skill-title">Frontend</p>
+        <p class="skill-preview">Astro · Tailwind</p>
+        <p class="skill-arrow">+</p>
+      </div>
+      <div class="skill-body">
+        <div class="skill-inner">
+          <p class="tag highlight">Tailwind</p>
+          <p class="tag">HTML</p>
+          <p class="tag">CSS</p>
+          <p class="tag">Astro</p>
+        </div>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-header">
+        <p class="skill-num">02</p>
+        <p class="skill-title">Backend</p>
+        <p class="skill-preview">Flask · PostgreSQL</p>
+        <p class="skill-arrow">+</p>
+      </div>
+      <div class="skill-body">
+        <div class="skill-inner">
+          <p class="tag highlight">Flask</p>
+          <p class="tag">PostgreSQL</p>
+          <p class="tag">REST API</p>
+        </div>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-header">
+        <p class="skill-num">03</p>
+        <p class="skill-title">Languages</p>
+        <p class="skill-preview">Python · Cpp</p>
+        <p class="skill-arrow">+</p>
+      </div>
+      <div class="skill-body">
+        <div class="skill-inner">
+          <p class="tag highlight">Python</p>
+          <p class="tag">Cpp</p>
+          <p class="tag">Javascript</p>
+          <p class="tag">C</p>
+        </div>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-header">
+        <p class="skill-num">04</p>
+        <p class="skill-title">Tools</p>
+        <p class="skill-preview">Docker · Figma</p>
+        <p class="skill-arrow">+</p>
+      </div>
+      <div class="skill-body">
+        <div class="skill-inner">
+          <p class="tag highlight">Git</p>
+          <p class="tag">Figma</p>
+          <p class="tag">Docker</p>
+        </div>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-header">
+        <p class="skill-num">05</p>
+        <p class="skill-title">Currently Learning</p>
+        <p class="skill-preview">Django · Fusion</p>
+        <p class="skill-arrow">+</p>
+      </div>
+      <div class="skill-body">
+        <div class="skill-inner">
+          <p class="tag highlight">Django</p>
+          <p class="tag">Autodesk Fusion</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="about" id="about">
+    <h2>About <span class="hand">Mihir</span></h2>
+    <p class="about-text">
+      Hey, I'm Mihir. I'm a web developer who just really enjoys building
+      things. I work mostly with Python and Flask, and I’ve spent a lot of time
+      working on different projects—sometimes on my own, and sometimes teaming
+      up with friends. A few are still quick MVPs, others are fully built, but
+      all of them have taught me something new. For me, it’s not just about
+      writing code. I love the whole process of taking an idea and figuring out
+      how to make it real and I’m always looking for a fresh problem to solve.
+    </p>
+  </section>
+  <section class="connect" id="connect">
+    <div class="connect-header">
+      <a href="mailto:hello@itsmihir.me" class="connect-title"
+        >Let's Connect <span class="connect-arrow">↗</span></a
+      >
+    </div>
+    <div class="connect-footer">
+      <div class="footer-col">
+        <p class="footer-label">Socials</p>
+        <a href="https://github.com/m141r" target="_blank" class="footer-link"
+          >GitHub</a
+        >
+        <a
+          href="https://www.linkedin.com/in/mihirkumar027"
+          target="_blank"
+          class="footer-link">LinkedIn</a
+        >
+      </div>
+      <div class="footer-col">
+        <p class="footer-label">Resources</p>
+        <a href="#" class="footer-link">Resume</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-label">Status</p>
+        <p class="footer-status">Available for projects</p>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<script type="module" src={heroTrail}></script>
+<script type="module" src={projectCursor}></script>
+<script type="module" src={GsapSkill}></script>
+<script type="module" src={AboutText}></script>
+<script type="module" src={navbarScramble}></script>
+<script type="module" src={smoothScroll}></script>
+<script type="module" src={entrance}></script>
+<script type="module" src={magnetic}></script>
