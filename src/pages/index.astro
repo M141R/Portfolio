@@ -4,14 +4,6 @@ import { Image } from "astro:assets";
 import devstashImg from "../assets/project/devstash.png";
 import bitvaultImg from "../assets/project/bitvault.png";
 import stockwiseImg from "../assets/project/stockwise.png";
-import heroTrail from "../scripts/hero-trail.js?url";
-import projectCursor from "../scripts/project-cursor.js?url";
-import GsapSkill from "../scripts/gsap-skill.js?url";
-import AboutText from "../scripts/about-text.js?url";
-import navbarScramble from "../scripts/navbar-scramble.js?url";
-import smoothScroll from "../scripts/smooth-scroll.js?url";
-import entrance from "../scripts/entrance.js?url";
-import magnetic from "../scripts/magnetic.js?url";
 ---
 
 <Layout>
@@ -208,11 +200,13 @@ import magnetic from "../scripts/magnetic.js?url";
   </section>
 </Layout>
 
-<script type="module" src={heroTrail}></script>
-<script type="module" src={projectCursor}></script>
-<script type="module" src={GsapSkill}></script>
-<script type="module" src={AboutText}></script>
-<script type="module" src={navbarScramble}></script>
-<script type="module" src={smoothScroll}></script>
-<script type="module" src={entrance}></script>
-<script type="module" src={magnetic}></script>
+<script type="module">
+  import "../scripts/hero-trail.js";
+  import "../scripts/project-cursor.js";
+  import "../scripts/gsap-skill.js";
+  import "../scripts/about-text.js";
+  import "../scripts/navbar-scramble.js";
+  import "../scripts/smooth-scroll.js";
+  import "../scripts/entrance.js";
+  import "../scripts/magnetic.js";
+</script>
