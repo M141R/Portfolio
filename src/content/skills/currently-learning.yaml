@@ -1,0 +1,10 @@
+title: Currently Learning
+order: 5
+preview: Django · Fusion
+tags:
+  - name: Django
+    highlight: true
+  - name: Autodesk Fusion
+    highlight: false
+  - name: GSAP
+    highlight: false

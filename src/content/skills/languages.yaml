@@ -1,0 +1,12 @@
+title: Languages
+order: 3
+preview: Python · Cpp
+tags:
+  - name: Python
+    highlight: true
+  - name: Cpp
+    highlight: false
+  - name: Javascript
+    highlight: false
+  - name: C
+    highlight: false

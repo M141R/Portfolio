@@ -1,0 +1,12 @@
+title: Frontend
+order: 1
+preview: Astro · Tailwind
+tags:
+  - name: Tailwind
+    highlight: true
+  - name: HTML
+    highlight: false
+  - name: CSS
+    highlight: false
+  - name: Astro
+    highlight: false

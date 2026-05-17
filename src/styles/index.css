@@ -254,6 +254,7 @@ small,
   color: #888;
   text-align: right;
   min-width: 200px;
+  text-transform: uppercase;
 }
 
 .project .swipeimage {

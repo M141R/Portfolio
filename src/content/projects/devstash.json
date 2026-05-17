@@ -1,0 +1,9 @@
+{
+  "title": "Devstash",
+  "order": 2,
+  "image": "../../assets/project/devstash/image.png",
+  "description": " DevStash is a curated directory of the best developer tools, resources, and utilities. The stash every developer needs.",
+  "category": "Developer Tools",
+  "link": "https://devstash.azurewebsites.net/",
+  "color": "#f0f2f7"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "StockWise",
+  "order": 3,
+  "image": "../../assets/project/stock-wise/image.png",
+  "description": " An educational stock research tool in plain English",
+  "category": "Finance",
+  "link": "https://stockwise.azurewebsites.net",
+  "color": "#f0f7f0"
+}

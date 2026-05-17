@@ -1,9 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import devstashImg from "../assets/project/devstash.png";
-import bitvaultImg from "../assets/project/bitvault.png";
-import stockwiseImg from "../assets/project/stockwise.png";
+import { createReader } from "@keystatic/core/reader";
+import keystaticConfig from "../../keystatic.config.js";
+
+const reader = createReader(process.cwd(), keystaticConfig);
+const rawProjects = await reader.collections.projects.all();
+const projects = rawProjects
+  .map((p) => p.entry)
+  .sort((a, b) => (a.order || 0) - (b.order || 0));
+
+const rawSkills = await reader.collections.skills.all();
+const skills = rawSkills
+  .map((s) => s.entry)
+  .sort((a, b) => (a.order || 0) - (b.order || 0));
+
+const aboutData = await reader.singletons.about.read();
+
+const projectImages = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/project/**/*.{jpeg,jpg,png,gif,webp}",
+);
 ---
 
 <Layout>
@@ -17,159 +33,79 @@ import stockwiseImg from "../assets/project/stockwise.png";
       >
     </p>
   </section>
+
   <section class="projectlist" id="projects">
     <h2>Featured <span class="hand">Projects</span></h2>
-    <a href="https://devstash.itsmihir.me" target="_blank">
-      <div class="project" data-color="#f0f2f7">
-        <Image
-          src={devstashImg}
-          alt="DevStash Project Preview"
-          class="swipeimage"
-        />
-        <div class="projectinfo">
-          <p class="project-num">01</p>
-          <div class="project-title-group">
-            <h3>DevStash</h3>
-            <p class="project-desc">
-              DevStash is a curated directory of the best developer tools,
-              resources, and utilities. The stash every developer needs.
-            </p>
-          </div>
-          <p class="project-cat">DEVELOPER TOOLS</p>
-        </div>
-      </div>
-    </a>
-    <a href="https://bitvault.itsmihir.me" target="_blank">
-      <div class="project" data-color="#f7f0f0">
-        <Image
-          src={bitvaultImg}
-          alt="BitVault Project Preview"
-          class="swipeimage"
-        />
-        <div class="projectinfo">
-          <p class="project-num">02</p>
-          <div class="project-title-group">
-            <h3>BitVault</h3>
-            <p class="project-desc">
-              Download free B.Tech notes, syllabus, papers, and study resources.
-              Filter by subject, type, and semester for fast access.
-            </p>
-          </div>
-          <p class="project-cat">Notes Sharing</p>
-        </div>
-      </div>
-    </a>
-    <a href="https://stockwise.azurewebsites.net" target="_blank">
-      <div class="project" data-color="#f0f7f0">
-        <Image
-          src={stockwiseImg}
-          alt="StockWise Project Preview"
-          class="swipeimage"
-        />
-        <div class="projectinfo">
-          <p class="project-num">03</p>
-          <div class="project-title-group">
-            <h3>StockWise</h3>
-            <p class="project-desc">
-              An educational stock research tool in plain English
-            </p>
-          </div>
-          <p class="project-cat">FINANCE</p>
-        </div>
-      </div>
-    </a>
+
+    {
+      projects.map((project, index) => {
+        const imagePath = project.image
+          ? project.image.replace("../../", "../")
+          : null;
+
+        return (
+          <a href={project.link || "#"} target="_blank">
+            <div class="project" data-color={project.color || "#f0f2f7"}>
+              {imagePath && projectImages[imagePath] ? (
+                <Image
+                  src={projectImages[imagePath]()}
+                  alt={`${project.title} Preview`}
+                  class="swipeimage"
+                />
+              ) : null}
+
+              <div class="projectinfo">
+                <p class="project-num">0{index + 1}</p>
+                <div class="project-title-group">
+                  <h3>{project.title}</h3>
+                  <p class="project-desc">{project.description}</p>
+                </div>
+                <p class="project-cat">{project.category}</p>
+              </div>
+            </div>
+          </a>
+        );
+      })
+    }
   </section>
+
   <section class="skills" id="skills">
     <h2>My <span class="hand">Skills</span></h2>
-    <div class="skill-row">
-      <div class="skill-header">
-        <p class="skill-num">01</p>
-        <p class="skill-title">Frontend</p>
-        <p class="skill-preview">Astro · Tailwind</p>
-        <p class="skill-arrow">+</p>
-      </div>
-      <div class="skill-body">
-        <div class="skill-inner">
-          <p class="tag highlight">Tailwind</p>
-          <p class="tag">HTML</p>
-          <p class="tag">CSS</p>
-          <p class="tag">Astro</p>
+
+    {
+      skills.map((skillGroup, index) => (
+        <div class="skill-row">
+          <div class="skill-header">
+            <p class="skill-num">0{index + 1}</p>
+            <p class="skill-title">{skillGroup.title}</p>
+            <p class="skill-preview">{skillGroup.preview}</p>
+            <p class="skill-arrow">+</p>
+          </div>
+          <div class="skill-body">
+            <div class="skill-inner">
+              {skillGroup.tags.map((tag) => (
+                <p class={tag.highlight ? "tag highlight" : "tag"}>
+                  {tag.name}
+                </p>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-header">
-        <p class="skill-num">02</p>
-        <p class="skill-title">Backend</p>
-        <p class="skill-preview">Flask · PostgreSQL</p>
-        <p class="skill-arrow">+</p>
-      </div>
-      <div class="skill-body">
-        <div class="skill-inner">
-          <p class="tag highlight">Flask</p>
-          <p class="tag">PostgreSQL</p>
-          <p class="tag">REST API</p>
-        </div>
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-header">
-        <p class="skill-num">03</p>
-        <p class="skill-title">Languages</p>
-        <p class="skill-preview">Python · Cpp</p>
-        <p class="skill-arrow">+</p>
-      </div>
-      <div class="skill-body">
-        <div class="skill-inner">
-          <p class="tag highlight">Python</p>
-          <p class="tag">Cpp</p>
-          <p class="tag">Javascript</p>
-          <p class="tag">C</p>
-        </div>
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-header">
-        <p class="skill-num">04</p>
-        <p class="skill-title">Tools</p>
-        <p class="skill-preview">Docker · Figma</p>
-        <p class="skill-arrow">+</p>
-      </div>
-      <div class="skill-body">
-        <div class="skill-inner">
-          <p class="tag highlight">Git</p>
-          <p class="tag">Figma</p>
-          <p class="tag">Docker</p>
-        </div>
-      </div>
-    </div>
-    <div class="skill-row">
-      <div class="skill-header">
-        <p class="skill-num">05</p>
-        <p class="skill-title">Currently Learning</p>
-        <p class="skill-preview">Django · Fusion</p>
-        <p class="skill-arrow">+</p>
-      </div>
-      <div class="skill-body">
-        <div class="skill-inner">
-          <p class="tag highlight">Django</p>
-          <p class="tag">Autodesk Fusion</p>
-        </div>
-      </div>
-    </div>
+      ))
+    }
   </section>
+
   <section class="about" id="about">
     <h2>About <span class="hand">Mihir</span></h2>
+
     <p class="about-text">
-      Hey, I'm Mihir Kumar. I'm a web developer who just really enjoys building
-      things. I work mostly with Python and Flask, and I’ve spent a lot of time
-      working on different projects,sometimes on my own, and sometimes teaming
-      up with friends. A few are still quick MVPs, others are fully built, but
-      all of them have taught me something new. For me, it’s not just about
-      writing code. I love the whole process of taking an idea and figuring out
-      how to make it real and I’m always looking for a fresh problem to solve.
+      {
+        aboutData?.text ||
+          "Hello! I am a developer. Go into the Keystatic Admin panel to edit this text!"
+      }
     </p>
   </section>
+
   <section class="connect" id="connect">
     <div class="connect-header">
       <a href="mailto:hello@itsmihir.me" class="connect-title"

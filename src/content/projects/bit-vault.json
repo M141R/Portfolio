@@ -1,0 +1,9 @@
+{
+  "title": "BitVault",
+  "order": 1,
+  "image": "../../assets/project/bit-vault/image.png",
+  "description": " Download free B.Tech notes, syllabus, papers, and study resources. Filter by subject, type, and semester for fast access.",
+  "category": "Notes Sharing",
+  "link": "https://bitvaultapp.azurewebsites.net/",
+  "color": "#f7f0f0"
+}
